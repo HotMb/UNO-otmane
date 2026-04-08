@@ -3,6 +3,10 @@ class Carte:
     valeur = (1,2,3,4,5,6,7,8,9,10,'VALET','DAME','ROI')
     couleur = ('COEUR','PIQUE','CARREAU','TREFLE')
     def __init__(self, valeur, couleur):
+        if valeur not in self.valeur:
+            raise ValueError(f"Valeur invalide : {valeur}")
+        if couleur not in self.couleur:
+            raise ValueError(f"Couleur invalide : {couleur}")
         self.valeur = valeur
         self.couleur = couleur
 
