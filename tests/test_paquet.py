@@ -21,6 +21,15 @@ class TestPaquet:
         paquet.couper()
         assert len(paquet) == 52
 
+    def test_distribuer(self):
+        paquet = Paquet()
+        mains = paquet.distribuer(joueurs=4, cartes=5)
+
+        assert len(mains) == 4
+        assert all(len(main) == 5 for main in mains)
+        assert len(paquet) == 52 - 4 * 5
+        assert all(card.__class__.__name__ == 'Carte' for main in mains for card in main)
+
     def test_piocher(self):
         paquet = Paquet()
         carte = paquet.piocher()
