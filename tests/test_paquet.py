@@ -14,4 +14,4 @@ class TestPaquet:
     def test_paquet_melanger(self):
         paquet = Paquet()
         paquet2 = paquet.melanger()
-        assert paquet.cartes != paquet2.cartes
+        assert paquet != paquet2
