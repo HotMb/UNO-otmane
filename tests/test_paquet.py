@@ -10,3 +10,8 @@ class TestPaquet:
     def test_paquet_len(self):
         paquet = Paquet()
         assert len(paquet) == 52
+
+    def test_paquet_melanger(self):
+        paquet = Paquet()
+        paquet2 = paquet.melanger()
+        assert paquet.cartes != paquet2.cartes
