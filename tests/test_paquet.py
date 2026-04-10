@@ -15,3 +15,13 @@ class TestPaquet:
         paquet = Paquet()
         paquet2 = paquet.melanger()
         assert paquet != paquet2
+
+    def test_couper(self):
+        paquet = Paquet()
+        paquet.couper()
+        assert len(paquet) == 52
+
+    def test_piocher(self):
+        paquet = Paquet()
+        carte = paquet.piocher()
+        assert len(paquet) == 51
