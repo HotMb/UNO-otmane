@@ -4,9 +4,13 @@ from paquet import Paquet
 
 def main():
 
-    carte_val = input("Entrez une carte (valeur) : ")
-    carte_col = input("Entrez une carte (couleur) : ")
+    valeur_saisie = input("Entrez une carte (valeur) : ").strip().upper()
+    try:
+        carte_val = int(valeur_saisie)
+    except ValueError:
+        carte_val = valeur_saisie
 
+    carte_col = input("Entrez une carte (couleur) : ").strip().upper()
     carte = Carte(carte_val, carte_col)
 
     print(repr(carte))
