@@ -11,10 +11,16 @@ class TestPaquet:
         paquet = Paquet()
         assert len(paquet) == 52
 
-    def test_paquet_melanger(self):
+    def test_paquet_melanger(self, monkeypatch):
         paquet = Paquet()
-        paquet2 = paquet.melanger()
-        assert paquet != paquet2
+        original = paquet.cartes.copy()
+        monkeypatch.setattr("paquet.random.shuffle", lambda cartes: cartes.reverse())
+
+        resultat = paquet.melanger()
+
+        assert resultat is None
+        assert paquet.cartes == list(reversed(original))
+        assert {id(carte) for carte in paquet.cartes} == {id(carte) for carte in original}
 
     def test_couper(self):
         paquet = Paquet()
