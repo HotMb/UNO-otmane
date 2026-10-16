@@ -1,34 +1,32 @@
-# Jeu de cartes Python
+# Jeu de cartes en Python
+
+Dépôt pédagogique qui modélise une carte et un paquet standard de 52 cartes. Le code actuel ne met pas en œuvre les règles du jeu UNO.
 
 ## Structure
-- `src/carte.py` : classe `Carte`
-- `src/paquet.py` : classe `Paquet`
-- `main.py` : démonstration du fonctionnement
-- `tests/` : tests unitaires, intégration et E2E
 
-## Installation
+- `carte.py` : valeurs, couleurs et points d’une carte.
+- `paquet.py` : création, mélange, coupe, pioche et distribution.
+- `main.py` : saisie et affichage d’une carte.
+- `tests/` : tests unitaires et scénario de distribution.
 
-### 1. Créer l'environnement virtuel
-```bash
-virtualenv -p python3 venv
-```
+## Lancer
 
-### 2. Activer l'environnement
-```bash
-source ./venv/bin/activate
-```
+Prérequis : Python 3.8 ou plus récent.
 
-### 3. Installer les dépendances
-```bash
-pip install -r requirements.txt
-```
-
-## Exécution
-```bash
+```sh
+python -m venv .venv
+# Linux/macOS
+source .venv/bin/activate
+# Windows PowerShell
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
 python main.py
 ```
 
-## Lancer les tests
-```bash
-pytest
+Saisissez une valeur de 1 à 10, ou VALET, DAME ou ROI. Les couleurs sont COEUR, PIQUE, CARREAU et TREFLE.
+
+## Tests
+
+```sh
+pytest tests/ -v
 ```
