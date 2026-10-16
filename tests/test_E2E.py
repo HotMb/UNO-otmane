@@ -15,3 +15,11 @@ def test_scenario_complet():
     carte = paquet.piocher()
     assert carte is not None
     assert len(paquet.cartes) == 31
+
+def test_main_normalizes_numeric_value_and_color(monkeypatch):
+    from main import main
+
+    inputs = iter([" 5 ", "coeur"])
+    monkeypatch.setattr("builtins.input", lambda prompt="": next(inputs))
+
+    main()
